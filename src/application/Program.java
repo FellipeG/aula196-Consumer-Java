@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 import java.util.Scanner;
+import java.util.function.Consumer;
 
 import model.entities.Product;
 
@@ -20,7 +21,9 @@ public class Program {
 		list.add(new Product("Tablet", 350.50));
 		list.add(new Product("HD Case", 80.90));
 		
-		list.forEach(Product::nonStaticPriceUpdate);
+		Consumer<Product> consumer = p -> p.setPrice(p.getPrice() * 1.1);
+		
+		list.forEach(consumer);
 		
 		list.forEach(System.out::println);
 		

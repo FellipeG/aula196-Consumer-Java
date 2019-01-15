@@ -6,7 +6,6 @@ import java.util.Locale;
 import java.util.Scanner;
 
 import model.entities.Product;
-import model.util.PriceUpdate;
 
 public class Program {
 
@@ -21,7 +20,7 @@ public class Program {
 		list.add(new Product("Tablet", 350.50));
 		list.add(new Product("HD Case", 80.90));
 		
-		list.forEach(new PriceUpdate());
+		list.forEach(Product::staticPriceUpdate);
 		
 		list.forEach(System.out::println);
 		
